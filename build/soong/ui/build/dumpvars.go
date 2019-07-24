@@ -112,6 +112,7 @@ var BannerVars = []string{
 	"TARGET_BUILD_PDK",
 	"PDK_FUSION_PLATFORM_ZIP",
 	"PRODUCT_SOONG_NAMESPACES",
+	"PRODUCT_VARIANT",
 }
 
 func Banner(make_vars map[string]string) string {
@@ -147,6 +148,7 @@ func runMakeProductConfig(ctx Context, config Config) {
 		"CCACHE_SLOPPINESS",
 		"CCACHE_BASEDIR",
 		"CCACHE_CPP2",
+		"PRODUCT_VARIANT",
 	}
 
 	allVars := append(append([]string{
