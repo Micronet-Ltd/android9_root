@@ -1383,6 +1383,9 @@ define build-recoveryimage-target
   $(hide) cat $(recovery_build_props) \
           >> $(TARGET_RECOVERY_ROOT_OUT)/prop.default
   $(hide) ln -sf prop.default $(TARGET_RECOVERY_ROOT_OUT)/default.prop
+  $(hide) if [ -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/recovery.iodriver ]; then \
+	  mv -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/recovery.iodriver $(TARGET_RECOVERY_ROOT_OUT)/sbin/iodriver; \
+	  fi
   $(BOARD_RECOVERY_IMAGE_PREPARE)
   $(if $(filter true,$(BOARD_BUILD_SYSTEM_ROOT_IMAGE)), \
     $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/system_root; \

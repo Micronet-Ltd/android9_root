@@ -1,0 +1,2 @@
+# make ota diff package
+./build/tools/releasetools/ota_from_target_files -v --block -k build/make/target/product/security/c600/releasekey -i <source folder>/msm8953_64_c801-target_files-<eng>.MSTab8_<ver>.zip out/target/product/msm8953_64_c801/obj/PACKAGING/target_files_intermediates/msm8953_64_c801-target_files-<eng>.MSTab8_<ver>.zip out/target/product/msm8953_64_c801/msm8953_64-incremental-ota.zip
