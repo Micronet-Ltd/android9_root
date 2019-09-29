@@ -27,11 +27,12 @@ fi
 if [ -n "$AB_OTA_UPDATER" ] ; then
   echo "ro.build.ab_update=$AB_OTA_UPDATER"
 fi
-echo "ro.product.model=$PRODUCT_MODEL"
-echo "ro.product.brand=$PRODUCT_BRAND"
-echo "ro.product.name=$PRODUCT_NAME"
-echo "ro.product.device=$TARGET_DEVICE"
-
+#echo "ro.product.model=$PRODUCT_MODEL"
+#echo "ro.product.brand=$PRODUCT_BRAND"
+#echo "ro.product.name=$PRODUCT_NAME"
+#echo "ro.product.device=$TARGET_DEVICE"
+echo "ro.product.name=$NAME_PRODUCT"
+echo "ro.product.device=$TARGET_DEVICE1"
 # These values are deprecated, use "ro.product.cpu.abilist"
 # instead (see below).
 echo "# ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,"

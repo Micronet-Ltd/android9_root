@@ -240,7 +240,7 @@ ifeq (,$(strip $(BUILD_FINGERPRINT)))
   else
     BF_BUILD_NUMBER := $(file <$(BUILD_NUMBER_FILE))
   endif
-  BUILD_FINGERPRINT := $(PRODUCT_BRAND)/$(TARGET_PRODUCT)/$(TARGET_DEVICE):$(PLATFORM_VERSION)/$(BUILD_ID)/$(BF_BUILD_NUMBER):$(TARGET_BUILD_VARIANT)/$(BUILD_VERSION_TAGS)
+  BUILD_FINGERPRINT := $(PRODUCT_BRAND)/$(NAME_PRODUCT)/$(TARGET_DEVICE1):$(PLATFORM_VERSION)/$(BUILD_ID)/$(BF_BUILD_NUMBER):$(TARGET_BUILD_VARIANT)/$(BUILD_VERSION_TAGS)
 endif
 # unset it for safety.
 BF_BUILD_NUMBER :=
@@ -331,7 +331,9 @@ endif
 	$(hide) TARGET_BUILD_TYPE="$(TARGET_BUILD_VARIANT)" \
 			TARGET_BUILD_FLAVOR="$(TARGET_BUILD_FLAVOR)" \
 			TARGET_DEVICE="$(TARGET_DEVICE)" \
+			TARGET_DEVICE1="$(TARGET_DEVICE1)" \
 			PRODUCT_NAME="$(TARGET_PRODUCT)" \
+			NAME_PRODUCT="$(NAME_PRODUCT)" \
 			PRODUCT_BRAND="$(PRODUCT_BRAND)" \
 			PRODUCT_DEFAULT_LOCALE="$(call get-default-product-locale,$(PRODUCT_LOCALES))" \
 			PRODUCT_DEFAULT_WIFI_CHANNELS="$(PRODUCT_DEFAULT_WIFI_CHANNELS)" \
@@ -1384,8 +1386,8 @@ define build-recoveryimage-target
           >> $(TARGET_RECOVERY_ROOT_OUT)/prop.default
   $(hide) ln -sf prop.default $(TARGET_RECOVERY_ROOT_OUT)/default.prop
   $(hide) if [ -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/recovery.iodriver ]; then \
-	  mv -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/recovery.iodriver $(TARGET_RECOVERY_ROOT_OUT)/sbin/iodriver; \
-	  fi
+         mv -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/recovery.iodriver $(TARGET_RECOVERY_ROOT_OUT)/sbin/iodriver; \
+         fi
   $(BOARD_RECOVERY_IMAGE_PREPARE)
   $(if $(filter true,$(BOARD_BUILD_SYSTEM_ROOT_IMAGE)), \
     $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/system_root; \
