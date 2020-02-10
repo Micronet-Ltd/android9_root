@@ -29,8 +29,9 @@ if [ -n "$AB_OTA_UPDATER" ] ; then
 fi
 echo "ro.product.model=$PRODUCT_MODEL"
 echo "ro.product.brand=$PRODUCT_BRAND"
-echo "ro.product.name=$PRODUCT_NAME"
-echo "ro.product.device=$TARGET_DEVICE"
+echo "ro.product.name=$PRODUCT_MODEL"
+echo "ro.product.device=$PRODUCT_MODEL"
+echo "ro.device.model=$PRODUCT_MODEL"
 
 # These values are deprecated, use "ro.product.cpu.abilist"
 # instead (see below).
